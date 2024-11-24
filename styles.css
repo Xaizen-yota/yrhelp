@@ -1,0 +1,373 @@
+/* General body styling */
+.body {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  /* filter: drop-shadow(2px 4px 6px black); */
+}
+
+/* Background image styling */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  /* filter: blur(1px); */
+  /* opacity: 0.8; */
+}
+
+/* Container styling for both admin and user pages */
+.container {
+  width: 400px;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(2px 4px 6px black);
+  /* background-color: #fff5eec4; */
+  background-color: #fffffff0;
+}
+
+/* Search bar styling for both admin and user pages */
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+/* Search input styling for both admin and user pages */
+.search-bar__input {
+  flex-grow: 1;
+  font-size: 16px;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  color: #333333;
+  outline: none;
+}
+
+/* Icon button styling */
+.icon-button {
+  font-size: 20px;
+  padding: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.icon-button:hover {
+  color: red;
+}
+
+/* Scrollable area styling for user profiles */
+.scrollable {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 12px;
+}
+
+.scrollable::-webkit-scrollbar-track {
+  /* background: rgba(0, 0, 0, 0.7); */
+  background: rgb(126 126 126);
+  border-radius: 15px;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 10px;
+  border: 3px solid rgba(0, 0, 0, 0.7);
+}
+
+/* User card styling */
+.user-card {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: rgb(1 1 1 / 11%);
+  border-radius: 10px;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: user-card__pop-up 0.3s forwards;
+}
+
+.user-card:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.user-card__img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-card__name {
+  margin: 0;
+  font-size: 16px;
+  /* color: white; */
+  flex-grow: 1;
+}
+
+/* General button styling */
+.button {
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.button i {
+  font-size: 16px;
+}
+
+/* Animation for user card pop-up */
+@keyframes user-card__pop-up {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Prompt overlay styling */
+.prompt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.prompt-container {
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.prompt-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 20px;
+  border: none;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Menu styling for social media icons */
+.menu {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu__toggle {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.25), 0 12px 17px rgba(0, 0, 0, 0.1); 
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.5em;
+  /* color: #fff; */
+  z-index: 10000;
+}
+
+.menu__toggle i {
+  position: absolute;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.menu__toggle i:nth-child(1) {
+  opacity: 1;
+  transform: rotate(360deg);
+}
+
+.menu--active .menu__toggle i:nth-child(1) {
+  opacity: 0;
+  transform: rotate(0deg);
+}
+
+.menu--active .menu__toggle i:nth-child(2) {
+  opacity: 1;
+  transform: rotate(360deg);
+}
+
+.menu__item {
+  position: absolute;
+  left: -24px;
+  list-style: none;
+  transform-origin: 50px;
+  transition: 0.5s;
+  transition-delay: calc(0.05s * var(--i));
+  transform: rotate(calc(360deg / 5 * var(--i)));
+  scale: 0;
+  z-index: 1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.menu--active .menu__item {
+  scale: 1;
+}
+
+.menu__link {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: var(--clr);
+  color: #fff;
+  font-size: 1em;
+  border-radius: 50%;
+  transform: rotate(calc(360deg / -5 * var(--i)));
+  box-shadow: 0 3px 4px rgba(0,0,0,0.15);
+  text-decoration: none;
+}
+
+.menu__link:hover {
+  color: red; /* Red color on hover */
+  background-color: rgba(255, 0, 0, 0.1); /* Slight red background on hover */
+}
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  /* background-color: rgb(0,0,0); */ /* Fallback color */
+  /* background-color: rgba(0,0,0,0.4); */ /* Black w/ opacity */
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 17% auto; /* 15% from the top and centered */
+  padding: 20px;
+  /* border: 1px solid #888; */
+  width: 56%; /* Could be more or less, depending on screen size */
+  border-radius: 14px;
+  filter: drop-shadow(2px 4px 6px black);
+  box-shadow: 0 0 30px rgb(2 2 2);
+  background-color: rgb(2 2 2);
+}
+
+.modal-choice-title{
+  color: #ffffff8f;
+  margin-top: 2px;
+}
+
+.close {
+  color: #fff5eeb0;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Button styles for the modals */
+.modal button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #333333;
+  color: #ffffffa8;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modal button:hover {
+  background-color: #45a049;
+}
+
+/* Scrape form styles */
+#scrapeDataForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#scrapeDataForm input {
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  background-color: #333;
+  border: none;
+  color: white;
+}
+
+#scrapeDataForm button {
+  align-self: center;
+  padding: 10px 20px;
+}
+
+/* Scraped data display styles */
+#scrapedDataContainer p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+#scrapedDataContainer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#scrapedDataContainer a:hover {
+  text-decoration: underline;
+}

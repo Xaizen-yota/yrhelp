@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel - User Profiles</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="body">
+  <!-- Background Image -->
+  <img src="Fpw5.png" alt="Background Image" class="background-image" />
+  <div id="adminContainer" class="container">
+    <!-- Search Bar, Add User Button, and Logout Button -->
+    <div id="adminSearchBar" class="search-bar">
+
+      <input type="text" id="adminSearchInput" class="search-bar__input" placeholder="Search..." />
+      
+      <!-- Add User Button -->
+      <button id="adminAddUserBtn" class="icon-button">
+        <i class="fas fa-plus"></i>
+      </button>
+      
+      <!-- Logout Button -->
+      <button id="logoutBtn" class="icon-button">
+        <i class="fas fa-sign-out-alt"></i>
+      </button>
+
+    </div>
+    <!-- Container for User Profiles -->
+    <div id="adminUserProfiles" class="scrollable"></div>
+  </div>
+  
+  <!-- Choice Modal -->
+  <div id="addChoiceModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 class="modal-choice-title">Add User</h2>
+      <button id="manualAddBtn">Add Manually</button>
+      <button id="autoAddBtn">Add Automatically</button>
+      <button id="uploadBtn">Upload JSON or CSV</button>
+    </div>
+  </div>
+
+  <!-- Scrape Data Modal -->
+  <div id="scrapeDataFormContainer" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 class="modal-choice-title">Scrape User Data</h2>
+      <form id="scrapeDataForm">
+        <input type="text" id="userName" placeholder="Enter username" required>
+        <button type="submit">Scrape</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Upload Data Modal -->
+  <div id="uploadDataFormContainer" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 class="modal-choice-title">Upload JSON or CSV</h2>
+      <form id="uploadDataForm" enctype="multipart/form-data">
+        <input type="file" id="fileInput" accept=".json, .csv" required>
+        <button type="submit">Upload</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scraped Data Display Modal -->
+  <div id="scrapedDataContainer" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 class="modal-choice-title">Scraped User Data</h2>
+      <p>Country: <span id="scrapedCountry"></span></p>
+      <p>Instagram: <a id="scrapedInstagram" href="#" target="_blank"></a></p>
+      <p>YouTube: <a id="scrapedYouTube" href="#" target="_blank"></a></p>
+      <p>TikTok: <a id="scrapedTikTok" href="#" target="_blank"></a></p>
+    </div>
+  </div>
+
+
+  <script src="admin.js" defer></script>
+</body>
+
+</html>
